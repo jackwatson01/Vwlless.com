@@ -1,0 +1,225 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    color: #1c1f26;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+header nav {
+    display: flex;
+    gap: 10px;
+}
+
+header button {
+    background-color: #0056b3;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+header button:hover {
+    background-color: #004085;
+}
+
+#admin-button-trigger {
+    cursor: pointer;
+    color: inherit;
+}
+
+#game-container {
+    text-align: center;
+    background: #e9ecef;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+#daily-category {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    color: #495057;
+}
+
+.puzzle-word-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.puzzle-word {
+    background-color: #6c757d;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 4px;
+}
+
+.puzzle-input {
+    flex-grow: 1;
+    padding: 10px;
+    text-align: center;
+    border: 2px solid #6c757d;
+    border-radius: 4px;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+    background-color: #f8f9fa;
+    color: #1c1f26;
+    min-width: 200px; /* minimum width */
+    max-width: 100%; /* maximum width */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.puzzle-input.correct {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: #ffffff;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#timer {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #495057;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #495057;
+}
+
+#admin-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#admin-form-container, #archive-container, #rules-container {
+    background: #e9ecef;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    display: none;
+}
+
+#admin-form label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+#admin-form input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 2px solid #6c757d;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.3s;
+    background-color: #f8f9fa;
+    color: #1c1f26;
+}
+
+#admin-form input:focus {
+    border-color: #007bff;
+}
+
+#archive-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#archive-list li:hover {
+    background-color: #e2e6ea;
+}
+
+.play-button {
+    background-color: #28a745;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.play-button:hover {
+    background-color: #218838;
+}
+
+.edit-button {
+    background-color: #ffc107;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.edit-button:hover {
+    background-color: #e0a800;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}

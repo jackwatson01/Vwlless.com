@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSSNGVWLS - Word Puzzle Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 id="title">
+                M<span id="admin-button-trigger">S</span>SNGVWLS
+            </h1>
+        </div>
+        <nav>
+            <button id="home-btn">Home</button>
+            <button id="show-archive">Archive</button>
+            <button id="show-rules">Rules</button>
+        </nav>
+    </header>
+    <div id="game-container">
+        <p id="daily-category">Category - </p>
+        <div id="puzzle-container"></div>
+        <button id="give-up-btn">Give Up</button>
+        <div id="timer">Time: <span id="time">0.0</span> seconds</div>
+        <div id="result"></div>
+        <button id="next-btn" style="display: none;">Next</button>
+    </div>
+
+    <div id="admin-button-container" style="display: none;">
+        <button id="toggle-admin-form">Admin</button>
+    </div>
+    
+    <div id="admin-form-container" style="display: none;">
+        <h2>Admin Form</h2>
+        <form id="admin-form">
+            <label for="date">Date (d/m/y):</label>
+            <input type="text" id="date" name="date"><br><br>
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category"><br><br>
+            <label for="clue1">Clue 1:</label>
+            <input type="text" id="clue1" name="clue1"><br><br>
+            <label for="answer1">Answer 1:</label>
+            <input type="text" id="answer1" name="answer1"><br><br>
+            <label for="clue2">Clue 2:</label>
+            <input type="text" id="clue2" name="clue2"><br><br>
+            <label for="answer2">Answer 2:</label>
+            <input type="text" id="answer2" name="answer2"><br><br>
+            <label for="clue3">Clue 3:</label>
+            <input type="text" id="clue3" name="clue3"><br><br>
+            <label for="answer3">Answer 3:</label>
+            <input type="text" id="answer3" name="answer3"><br><br>
+            <label for="clue4">Clue 4:</label>
+            <input type="text" id="clue4" name="clue4"><br><br>
+            <label for="answer4">Answer 4:</label>
+            <input type="text" id="answer4" name="answer4"><br><br>
+            <label for="clue5">Clue 5:</label>
+            <input type="text" id="clue5" name="clue5"><br><br>
+            <label for="answer5">Answer 5:</label>
+            <input type="text" id="answer5" name="answer5"><br><br>
+            <button type="button" id="save-puzzle">Save Puzzle</button>
+        </form>
+    </div>
+
+    <div id="archive-container" style="display: none;">
+        <h2>Archive</h2>
+        <ul id="archive-list"></ul>
+    </div>
+
+    <div id="rules-container" style="display: none;">
+        <h2>Rules</h2>
+        <p>Welcome to MSSNGVWLS! The goal of the game is to fill in the missing vowels in the words given in the clues. Each clue represents a word with its vowels removed. Type in the correct word in the input box and the box will turn green when you are correct. Complete all the clues as fast as possible! Here are the rules:</p>
+        <ul>
+            <li>Each day there is a new category and a set of 5 clues.</li>
+            <li>Each clue represents a word with its vowels removed.</li>
+            <li>Type the correct word in the input box for each clue.</li>
+            <li>The input box will turn green when the correct word is entered.</li>
+            <li>When all words are correct, the timer stops, and your performance is evaluated.</li>
+            <li>If you give up, the correct answers will be revealed.</li>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
