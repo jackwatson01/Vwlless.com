@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadPuzzle(currentDate);
 
     document.getElementById('give-up-btn').addEventListener('click', giveUp);
-    document.getElementById('next-btn').addEventListener('click', () => loadPuzzle(currentDate));
+    document.getElementById('next-btn').addEventListener('click', () => loadNextPuzzle(currentDate));
     document.getElementById('toggle-admin-form').addEventListener('click', promptAdminLogin);
     document.getElementById('save-puzzle').addEventListener('click', savePuzzle);
     document.getElementById('show-archive').addEventListener('click', showArchive);
@@ -21,7 +21,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function loadPuzzle(date) {
-    const puzzle = puzzles.find(p => p.date === date);
+    const currentDate = new Date(date).toLocaleDateString('en-GB');
+    const puzzle = puzzles.find(p => new Date(p.date).toLocaleDateString('en-GB') === currentDate);
+
     if (!puzzle) {
         alert("No puzzle for today!");
         return;
@@ -125,10 +127,17 @@ function evaluatePerformance() {
     document.getElementById('next-btn').style.display = 'inline-block';
 }
 
-function loadNextPuzzle() {
-    const currentDate = new Date().toLocaleDateString('en-GB');
+function loadNextPuzzle(currentDate) {
     currentPuzzleIndex = (currentPuzzleIndex + 1) % puzzles.length;
-    loadPuzzle(currentDate);
+    const nextPuzzle = puzzles[currentPuzzleIndex];
+    const nextPuzzleDate = new Date(nextPuzzle.date).toLocaleDateString('en-GB');
+
+    if (new Date(nextPuzzleDate) > new Date(currentDate)) {
+        alert("No more puzzles available for today!");
+        return;
+    }
+
+    loadPuzzle(nextPuzzleDate);
 }
 
 function promptAdminLogin() {
@@ -170,6 +179,11 @@ function toggleArchive() {
         playButton.textContent = 'Play';
         playButton.classList.add('play-button');
         playButton.addEventListener('click', () => {
+            const puzzleDate = new Date(puzzle.date).toLocaleDateString('en-GB');
+            if (new Date(puzzleDate) > new Date()) {
+                alert("This puzzle is not yet available!");
+                return;
+            }
             loadPuzzle(puzzle.date);
             showGame();
         });
@@ -264,7 +278,7 @@ function savePuzzle() {
         answers: answers
     };
 
-    const existingPuzzleIndex = puzzles.findIndex(p => p.date === date);
+    const existingPuzzleIndex = puzzles.findIndex(p => new Date(p.date).toLocaleDateString('en-GB') === new Date(date).toLocaleDateString('en-GB'));
     if (existingPuzzleIndex !== -1) {
         puzzles[existingPuzzleIndex] = newPuzzle;
     } else {
